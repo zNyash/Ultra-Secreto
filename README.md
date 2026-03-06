@@ -15,3 +15,10 @@ Install dependencies:
 
 ```bash
 bun install
+```
+
+## Execution
+
+```bash
+bun run dev
+```
