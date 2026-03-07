@@ -42,27 +42,15 @@
               <UIcon name="lucide:clock-4" size="1.5rem" />
             </span>
             <div class="flex w-full flex-col gap-2">
-              <p>
+              <p class="-mt-1.25">
                 Registros fecham no dia <span class="font-medium">{{ formattedDate }}</span
                 >.
               </p>
               <div class="flex w-full justify-start gap-2">
-                <div class="bg-muted size-20 justify-center rounded-lg flex flex-col items-center">
-                  <p class="text-highlighted font-medium">{{ timeLeft.days }}</p>
-                  <span class="text-toned text-xs -mt-1">dias</span>
-                </div>
-                <div class="bg-muted size-20 justify-center rounded-lg flex flex-col items-center">
-                  <p class="text-highlighted font-medium">{{ timeLeft.hours }}</p>
-                  <span class="text-toned text-xs -mt-1">horas</span>
-                </div>
-                <div class="bg-muted size-20 justify-center rounded-lg flex flex-col items-center">
-                  <p class="text-highlighted font-medium">{{ timeLeft.minutes }}</p>
-                  <span class="text-toned text-xs -mt-1">minutos</span>
-                </div>
-                <div class="bg-muted size-20 justify-center rounded-lg flex flex-col items-center">
-                  <p class="text-highlighted font-medium">{{ timeLeft.seconds }}</p>
-                  <span class="text-toned text-xs -mt-1">segundos</span>
-                </div>
+                <CounterCard :value="timeLeft.days" label="dias" />
+                <CounterCard :value="timeLeft.hours" label="horas" />
+                <CounterCard :value="timeLeft.minutes" label="minutos" />
+                <CounterCard :value="timeLeft.seconds" label="segundos" />
               </div>
             </div>
           </div>
@@ -78,7 +66,7 @@
 <script lang="ts" setup>
 useDark();
 
-const targetDate = new Date("2026-04-01T00:00:00");
+const targetDate = new Date("2026-04-01T00:00:00"); // Set your target date here following that structure (YYYY-MM-DDTHH:mm:ss)
 const formattedDate = useDateFormat(targetDate, "DD/MM/YYYY");
 const now = useNow({ interval: 1000 });
 
